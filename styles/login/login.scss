@@ -1,0 +1,32 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  @extend .NOSELECT;
+
+  &__form,
+  &__irRegistro {
+    @extend .FORMULARIO1;
+  }
+
+  &__titulo {
+    @extend .TITULOSFORM;
+  }
+
+  &__correo,
+  &__contrasena {
+    @extend .DIVWITHINPUTANDLABEL;
+  }
+
+  &__noValido {
+    @extend .NOVALIDO;
+  }
+  button {
+    margin: 0.2rem;
+  }
+  &__mensajeOlvido {
+    @extend .LINKFORM;
+  }
+}

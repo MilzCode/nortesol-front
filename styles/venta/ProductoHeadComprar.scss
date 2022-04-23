@@ -1,0 +1,98 @@
+.productoHeadComprar {
+	$widthComprar: sizeBasedOnTitle(10);
+	background: $pantoneBlackC01;
+	width: $widthComprar;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	flex-direction: column;
+	max-width: 100%;
+	max-height: auto !important;
+	border-radius: sizeBasedOnTitle(0.4);
+	padding: sizeBasedOnTitle(0.5);
+
+	& button {
+		display: block;
+		margin: 3px;
+	}
+	&__titulo1,
+	&__titulo2 {
+		font-size: $fontSize4;
+		font-weight: 700;
+		color: $pantone2202C;
+		margin: 0;
+	}
+	&__titulo2 {
+		color: $pantone2039U;
+	}
+	&__precio {
+		background-color: white;
+		padding: 4px 14px;
+		font-size: $fontSize7;
+		font-weight: 600;
+		font-style: italic;
+		border-radius: sizeBasedOnTitle(0.2);
+		margin: sizeBasedOnTitle(0.1);
+	}
+	&__precio--anterior {
+		@extend .productoHeadComprar__precio;
+		color: $pantone1645C;
+		text-decoration: line-through;
+	}
+	&__precio--descuento {
+		@extend .productoHeadComprar__precio;
+		background-color: rgba(yellow, 0.5);
+	}
+	&__precio--no {
+		display: none;
+	}
+	&__porcentaje {
+		color: $pantoneRed032C;
+	}
+	&__porcentaje--no {
+		display: none;
+	}
+
+	&__cantidad {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		& > input {
+			max-width: sizeBasedOnTitle(2);
+			text-align: center;
+			margin: 0 1rem;
+			font-size: $fontSize11;
+			border-radius: 0.1rem;
+			padding: 0;
+			outline: none;
+		}
+		& > i {
+			cursor: pointer;
+			z-index: 2;
+			position: relative;
+			font-size: $fontSize2;
+			color: $pantone2412C;
+			&:last-child {
+				color: $pantone292C;
+			}
+			&:active {
+				transform: scale(0.9);
+			}
+			& div {
+				position: absolute;
+				width: 95%;
+				height: 80%;
+				background-color: white;
+				top: 8%;
+				border-radius: 10%;
+				z-index: -1;
+			}
+		}
+	}
+	&__mensajeCantidad {
+		font-size: $fontSize7;
+		font-weight: 600;
+		font-style: italic;
+	}
+}

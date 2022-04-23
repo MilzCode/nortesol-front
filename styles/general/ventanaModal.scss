@@ -1,0 +1,64 @@
+.ventanaModal {
+	position: fixed;
+	z-index: 999999;
+	background-color: rgba($pantoneBlackC, 0.5);
+	width: 100vw;
+	height: 100vh;
+	min-height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: $fontSize9;
+	text-align: center;
+
+	&__contenido {
+		max-height: 95vh;
+		background-color: $white;
+		max-width: min(90vw, 40em);
+		padding: 1em;
+		border-radius: 1em;
+		overflow-y: auto;
+	}
+	&__contenidoIn {
+		& > img {
+			max-height: 720px;
+			max-width: 100% !important;
+		}
+		& > a {
+			font-size: 1.2em;
+			color: $pantone2202C;
+			&:hover {
+				text-decoration: underline;
+				color: $pantone300C;
+			}
+		}
+	}
+
+	&__cerrarIco {
+		font-size: 1.5em;
+		display: block;
+		float: right;
+		padding-right: 0.5em;
+		padding-top: 0.3em;
+		cursor: pointer;
+		color: $pantoneWarmRedC;
+
+		&:hover {
+			color: $pantone2202C;
+		}
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+	&__titulo {
+		font-size: 1.3em;
+		padding-left: 0.5em;
+	}
+
+	&--salir {
+		@extend .ventanaModal;
+		display: none;
+	}
+}

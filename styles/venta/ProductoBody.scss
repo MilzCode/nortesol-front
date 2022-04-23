@@ -1,0 +1,19 @@
+.productoBody {
+  margin: auto 8vw;
+  padding-top: 1rem;
+  & > h2 {
+    font-size: $fontSize4;
+    color: $pantone2202C;
+  }
+
+  &__content {
+    & h2 {
+      font-size: $fontSize4;
+    }
+    & p,
+    span,
+    a {
+      font-size: $fontSize9;
+    }
+  }
+}

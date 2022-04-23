@@ -1,0 +1,10 @@
+.productoHead {
+  margin-top: sizeBasedOnTitle();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  & > * {
+    margin: 0 4vw;
+  }
+}

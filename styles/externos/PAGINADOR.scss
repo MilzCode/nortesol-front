@@ -1,0 +1,93 @@
+.reactpaginator {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	$font-sizePAGINATOR: min(25px, 3vw);
+	$color: #2d2926;
+	$backgroundBTN: white;
+	$backgroundCurrentPage: #ea5c90;
+	$backgroundUnfold: #69b3e7;
+	$disabledColor: #bbb;
+	$arrowColorHover: #ff6a39;
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: $font-sizePAGINATOR;
+	color: $color;
+	font-family: 'Roboto', sans-serif;
+	&__btn,
+	&__btn-unfold {
+		border: none;
+		outline: none;
+		margin: 25px * 0.2;
+		width: calc($font-sizePAGINATOR * 1.8);
+		height: calc($font-sizePAGINATOR * 1.8);
+		font-weight: bold;
+		border-radius: 50%;
+		box-shadow: 0 0.2rem 0.4rem 0 rgba($color, 0.3);
+		cursor: pointer;
+		font-size: min(calc($font-sizePAGINATOR * 0.94), 12px) !important;
+		background-color: $backgroundBTN;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:hover {
+			background: rgba($color, 0.2);
+		}
+		&--current {
+			@extend .reactpaginator__btn;
+			background-color: $backgroundCurrentPage;
+			cursor: default;
+			&:hover {
+				background: $backgroundCurrentPage;
+			}
+		}
+	}
+	&__btn-unfold {
+		background-color: $backgroundUnfold;
+	}
+	&__arrow-btn {
+		transform: rotate(-90deg);
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: calc($font-sizePAGINATOR * 1.8);
+		&:hover {
+			color: $arrowColorHover;
+		}
+		&:disabled {
+			color: $disabledColor;
+			cursor: default;
+			&:hover {
+				color: $disabledColor;
+			}
+		}
+	}
+	&__unfold-container {
+		position: relative;
+	}
+	&__unfold {
+		width: calc($font-sizePAGINATOR * 14);
+		bottom: calc($font-sizePAGINATOR * 0.5);
+		right: calc($font-sizePAGINATOR * 0.5);
+		border-radius: calc($font-sizePAGINATOR * 0.4);
+		height: auto;
+		max-height: 75vh;
+		background-color: $backgroundBTN;
+		border: 0.1rem solid rgba($color, 0.3);
+		z-index: 10100;
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		overflow: auto;
+		cursor: default;
+	}
+}

@@ -1,0 +1,54 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**Funciones**/  
+    function isAdmin() {
+      return request.auth != null && exists(/databases/$(database)/documents/nortesol-adm/$(request.auth.uid));
+    }
+
+    // //Funcion que encripta en MD5
+    // function hashMD5(string) {
+    //   return hashing.md5(string).toHexString();
+    // }
+
+
+    /**Reglas**/
+
+    //Permisos para cualquier documento por defecto
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+      allow update: if false;
+      allow delete: if false;
+      allow create: if false;
+      
+    }
+    //Permisos para colección usuarios {u} referencia al documento.
+    match /usuarios/{u} {
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null && request.resource.data.uid == request.auth.uid
+        && request.auth.uid == resource.data.uid;
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+    //el proposito de este documento es solo verificar si se tiene el rol de admin.
+    //en caso de poder leer este archivo podemos decir que se trata de un admin
+    match /admin-test/{u}{
+    	allow read: if isAdmin();
+    }
+    //permisos para coleccion productos
+    match /productos/{p} {
+      allow create: if isAdmin();
+      allow read;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /test/{t}{
+
+      allow read;
+      allow write: if isAdmin();
+    }
+  }
+}

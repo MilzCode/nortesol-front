@@ -1,0 +1,21 @@
+.search {
+  &__mensajeEncontrados {
+    $font-size: 3rem;
+    text-align: center;
+    & > h2 {
+      display: inline;
+      color: $pantone2202C;
+      font-size: min(#{$font-size}, 6vw);
+      font-weight: 600;
+      &::after {
+        content: ": ";
+      }
+    }
+    & > p {
+      display: inline;
+      color: $pantone1645C;
+      font-size: min(#{$font-size}, 6vw);
+      font-weight: 600;
+    }
+  }
+}

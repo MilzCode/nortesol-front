@@ -1,0 +1,19 @@
+.layout {
+  &__content {
+    @include headerSizeTop();
+    margin-left: 7vw;
+    margin-right: 7vw;
+    // max-width: 90vw !important;
+    min-height: calc(
+      100vh - #{$heightHeader} - #{$heightFooter} - #{$heightSubHeader}
+    );
+    // overflow-y: hidden;
+
+    @media (max-width: #{$breakHeader1}) {
+      min-height: calc(100vh - #{$heightHeader} - #{$heightFooter});
+    }
+    // @media (max-width: #{$breakHeader3}) {
+    //   min-height: calc(100vh - #{$heightHeader2} - #{$heightFooter});
+    // }
+  }
+}

@@ -1,0 +1,478 @@
+//Archivo de variables globales
+
+//Tamaño Base
+$font-sizeTitles: 3.5rem;
+//Esta variable es importante ya que se usa como medida de tamaño de componentes junto con la funcion sizeBasedOnTitle()
+$font-sizeTitlesResponsive: min(#{$font-sizeTitles}, 6.5vw);
+//esta funcion devulve un valor basado en el tamño del titulo y recibe un factor de escala, por defecto es 1 (1:1)
+@function sizeBasedOnTitle($factor: 1) {
+	@return calc(#{$font-sizeTitlesResponsive}* #{$factor});
+}
+
+//Tamaños
+$heightHeader: sizeBasedOnTitle(1.8);
+$heightHeader2: sizeBasedOnTitle(2.7);
+$heightSubHeader: sizeBasedOnTitle(1.2);
+$heightFooter: sizeBasedOnTitle(3.75);
+$breakHeader1: 800px;
+$breakHeader2: 700px;
+$breakHeader3: 450px;
+
+//Colores
+$pantone106C: #f9e547;
+$pantone300C: #005eb8;
+$white: white;
+$pantone2412C: #48d597;
+$pantone2039U: #ea5c90;
+$pantoneBlackC: #2d2926;
+$pantoneBlackC01: #e9e9e9;
+$pantoneBlackC03: #bfbebd;
+$pantoneBlackC07: #5f5e5d;
+$pantoneBlackC09: #5c5c5c;
+$pantone2202C: #00a5df;
+$pantoneWarmRedC: #f9423a;
+$pantoneRed032C: #ef3340;
+$pantone1645C: #ff6a39;
+$pantone7404C: #f4da40;
+$pantone292C: #69b3e7;
+$shadow02: rgba(0, 0, 0, 0.2);
+$facebookColor: #4267b2;
+$googleColor: #d34836;
+$disabledColor: #bbb;
+$AzulClaroMDB: #bdcfdc;
+$GrisMDB: #e0e0e0;
+//Fuentes
+$fontFamily: 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+	'Droid Sans', 'Helvetica Neue', sans-serif;
+
+//fontSizes
+$fontSize1: sizeBasedOnTitle(1);
+$fontSize2: sizeBasedOnTitle(0.95);
+$fontSize3: sizeBasedOnTitle(0.9);
+$fontSize4: sizeBasedOnTitle(0.85);
+$fontSize5: sizeBasedOnTitle(0.8);
+$fontSize6: sizeBasedOnTitle(0.75);
+$fontSize7: sizeBasedOnTitle(0.7);
+$fontSize8: sizeBasedOnTitle(0.65);
+$fontSize9: sizeBasedOnTitle(0.6);
+$fontSize10: sizeBasedOnTitle(0.55);
+$fontSize11: sizeBasedOnTitle(0.52);
+$fontSize12: sizeBasedOnTitle(0.5);
+$fontSize13: sizeBasedOnTitle(0.45);
+$fontSize14: sizeBasedOnTitle(0.4);
+
+//Textos Pseudoelementos
+
+//Mixins
+//dado que el header tiene un tamaño variable este mixin se encarga de dar un margin segun el tamaño.
+@mixin headerSizeTop($property: margin-top, $more: 0px) {
+	#{$property}: calc(#{$heightHeader} + #{$heightSubHeader} + #{$more});
+	@media screen and (max-width: $breakHeader1) {
+		#{$property}: calc(#{$heightHeader} + #{$more});
+	}
+	// @media screen and (max-width: $breakHeader3) {
+	//   #{$property}: calc(#{$heightHeader2} + #{$more});
+	// }
+}
+
+//clases globales, son clases que se usan en mas de un sitio.
+//NOSELECT sirve para que un elemento no se pueda seleccionar (como si fuese un pseudo elemento)
+.NOSELECT {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+//TEXTINVISIBLE sirve para que un texto no aparezca en pantalla (esto puede servir por temas de SEO)
+.TEXTINVISIBLE {
+	position: absolute;
+	color: transparent;
+	text-shadow: 0 0 0 transparent;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	z-index: -9999;
+}
+//"componentes"
+
+.DIVWITHINPUTANDLABEL {
+	$checkBox: 0.45rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: $fontSize12;
+	margin: 0 0 0.45rem 0;
+	position: relative;
+	height: sizeBasedOnTitle();
+	max-width: 100%;
+	width: sizeBasedOnTitle(10);
+
+	& > input:not([type='checkbox']),
+	select {
+		width: 100%;
+		height: 100%;
+		color: $pantoneBlackC09;
+		border-radius: sizeBasedOnTitle(0.3);
+		outline: none !important;
+		border: 0.2rem solid $pantoneBlackC03;
+		background: white;
+		padding-left: 8%;
+		font-size: 1em;
+		-webkit-transition: all 100ms;
+		transition: all 100ms;
+
+		&:focus {
+			border-color: #2684ff;
+			border-style: solid;
+			border-width: 1px;
+			box-shadow: 0 0 0 1px #2684ff;
+			color: $pantoneBlackC;
+		}
+		&:disabled {
+			background-color: rgba($disabledColor, 0.5);
+			font-style: italic;
+			color: $pantoneBlackC07;
+		}
+	}
+
+	& > label {
+		height: 100%;
+		position: absolute;
+		left: 0.4em;
+		top: 25%;
+		color: $pantoneBlackC03;
+	}
+	//en caso de que haya checkbox y quieras alinear en aquellos sin checkbox pon un div vacio en vez de checkbox
+	& > input[type='checkbox'],
+	div {
+		padding: 0 !important;
+		margin: 0 0 0 $checkBox !important;
+		width: 3 * $checkBox !important;
+		height: 3 * $checkBox !important;
+	}
+	//Esta manito es para mostrar los errores y funciona con fa-hand-pointer de fontawesome.
+	& .fa-hand-pointer {
+		font-size: 1.5em;
+		position: absolute;
+		z-index: 2;
+		right: -1em;
+		color: $pantone2202C;
+		transform: rotate(-90deg);
+	}
+}
+
+.TITULOSFORM {
+	font-size: $fontSize3;
+	font-weight: 700;
+	color: $pantone2202C;
+	margin: 0;
+	padding-bottom: 0.5rem;
+}
+
+.NOVALIDO {
+	color: red;
+	margin-top: 0.5rem;
+	font-size: $fontSize12;
+	font-style: italic;
+	text-align: center;
+}
+.CURSORPOINTER {
+	cursor: pointer;
+}
+
+.HOVERSHADOWBLUE {
+	&:hover {
+		background-color: red;
+	}
+}
+
+.FORMULARIO1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: sizeBasedOnTitle(13);
+	background: $pantoneBlackC01;
+	border-radius: sizeBasedOnTitle(0.2);
+	margin: 0.5rem;
+	padding: 0.8em;
+	max-width: 100%;
+	//ERRFORM es una clase que se usa para mostrar los errores en el formulario
+	//se espera que contenga dentro un ul con los errores ej
+	/*
+  <div className="ERRFORM">
+            <ul>
+                <li>
+                  <i className="fas fa-exclamation-circle" />
+                  mensaje de error 1
+                </li>
+                <li>
+
+                  <i className="fas fa-exclamation-circle" />
+                  mensaje de error 2
+                </li>
+            </ul>
+        </div>
+  */
+
+	.ERRFORM {
+		display: block;
+		color: rgba($pantoneWarmRedC, 0.9);
+		font-size: $fontSize12;
+		font-style: italic;
+		list-style: none;
+		margin-right: auto;
+
+		& > ul {
+			list-style: none;
+			padding: 0 0 0 2.2em;
+		}
+		& i {
+			margin-right: 0.2em;
+		}
+	}
+}
+
+.LINKFORM {
+	color: $pantone2039U;
+	font-size: $fontSize12;
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+		color: rgba($pantone2039U, 0.7);
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+}
+.LINK {
+	color: $pantone300C;
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+		color: rgba($pantone300C, 0.7);
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.WHITEBACKGROUND {
+	background-color: white;
+	padding: 0.5em;
+	margin: 0.3em 0;
+	border-radius: 0.5em;
+}
+.TEXT1 {
+	font-size: $fontSize12;
+}
+.MAUTO {
+	margin: auto;
+}
+
+.CENTERTEXT {
+	text-align: center;
+}
+.CENTERABSOLUTE {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.CENTERFLEX {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.BOTONES {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	& > button {
+		margin: 0.1em;
+	}
+}
+
+.INPUT {
+	border-radius: 0.5rem !important;
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	overflow: hidden !important;
+	font-size: 1em;
+	color: $pantone2202C !important;
+	-webkit-transition: all 100ms;
+	transition: all 100ms;
+	background-color: hsl(0, 0%, 100%);
+	border-color: hsl(0, 0%, 80%);
+	border-style: solid;
+	border-width: 1px;
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #2684ff;
+	}
+	&:hover {
+		border-color: hsl(0, 0%, 70%);
+	}
+}
+.INPUT2 {
+	font-size: 16px;
+	border-radius: 4px;
+	width: 100%;
+	min-height: 35px;
+	-webkit-transition: all 100ms;
+	transition: all 100ms;
+	background-color: hsl(0, 0%, 100%);
+	border-color: hsl(0, 0%, 80%);
+	border-style: solid;
+	border-width: 1px;
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 1px #2684ff;
+	}
+	&:hover {
+		border-color: hsl(0, 0%, 70%);
+	}
+}
+.LABEL {
+	font-size: 1em;
+	display: block;
+	color: $pantone300C !important;
+	display: inline-block;
+}
+
+.LABELINPUT {
+	font-size: $fontSize4;
+	& > label {
+		@extend .LABEL;
+	}
+	& > input {
+		@extend .INPUT;
+		display: block;
+		width: 100%;
+	}
+	& > textarea {
+		@extend .INPUT;
+		display: block;
+		width: 100%;
+		height: 8em;
+		resize: none;
+		overflow-y: scroll !important;
+	}
+	& > select {
+		@extend .INPUT;
+		display: block;
+		width: 100%;
+		background-color: white;
+		overflow-y: scroll !important;
+	}
+}
+
+.UPLOADIMAGELOGO {
+	font-size: $fontSize5;
+	display: inline-block;
+	position: relative;
+	&:active {
+		transform: scale(0.99);
+	}
+	& > i {
+		cursor: pointer;
+	}
+	& > i:first-child {
+		color: $pantoneBlackC01;
+		font-size: 5em;
+	}
+	& > i:last-child {
+		color: $pantone292C;
+		font-size: 2em;
+		position: absolute;
+		top: 0.7em;
+		left: 0.78em;
+	}
+}
+
+.IMAGEPREVIEW {
+	font-size: $fontSize5;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	& > img,
+	div {
+		height: 5em;
+		margin-right: 0.5em;
+		margin-bottom: 0.2em;
+		border-radius: 0.5em;
+	}
+}
+
+////////////////////////////////////////////////////////////////
+
+.CARGANDOICO {
+	display: inline-block;
+	position: relative;
+	width: 1em;
+	height: 1em;
+
+	& div {
+		position: absolute;
+		top: 50%;
+		width: 0.5em;
+		height: 0.5em;
+		border-radius: 50%;
+		background: $pantoneBlackC;
+		animation-timing-function: cubic-bezier(0, 1, 1, 0);
+	}
+	& div:nth-child(1) {
+		left: 8px;
+		animation: lds-ellipsis1 0.6s infinite;
+	}
+	& div:nth-child(2) {
+		left: 8px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
+	& div:nth-child(3) {
+		left: 32px;
+		animation: lds-ellipsis2 0.6s infinite;
+	}
+	& div:nth-child(4) {
+		left: 56px;
+		animation: lds-ellipsis3 0.6s infinite;
+	}
+	@keyframes lds-ellipsis1 {
+		0% {
+			transform: scale(0);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+	@keyframes lds-ellipsis3 {
+		0% {
+			transform: scale(1);
+		}
+		100% {
+			transform: scale(0);
+		}
+	}
+	@keyframes lds-ellipsis2 {
+		0% {
+			transform: translate(0, 0);
+		}
+		100% {
+			transform: translate(24px, 0);
+		}
+	}
+}
+.CARGANDOICO2 {
+	@extend .CARGANDOICO;
+	& div {
+		background: white;
+	}
+}

@@ -1,0 +1,21 @@
+.volverBoton {
+	&__container {
+		cursor: pointer;
+		height: auto;
+		& > i {
+			margin-left: sizeBasedOnTitle(0.18);
+			font-size: $fontSize4;
+			transform: rotate(-90deg);
+			color: $pantone2412C;
+		}
+		& > span {
+			font-size: $fontSize4;
+			padding-left: 0.5rem;
+			font-weight: 600;
+			color: $pantone2039U;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

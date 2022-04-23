@@ -1,0 +1,178 @@
+.portadaMiniatura {
+	display: block;
+	$widthMiniatura: 23rem;
+	margin: $widthMiniatura * 0.05;
+	width: $widthMiniatura;
+	height: auto;
+	border-top-left-radius: $widthMiniatura * 0.1;
+	border-top-right-radius: $widthMiniatura * 0.1;
+	cursor: pointer;
+	&:hover {
+		transform: scale(0.99);
+	}
+	&:active {
+		transform: scale(0.98);
+	}
+	&__imagen {
+		width: $widthMiniatura;
+		max-height: $widthMiniatura * 0.5625;
+		border-left: 0.1rem solid $shadow02;
+		border-right: 0.1rem solid $shadow02;
+		border-top: 0.1rem solid $shadow02;
+		border-bottom: 0;
+		border-top-left-radius: $widthMiniatura * 0.1;
+		border-top-right-radius: $widthMiniatura * 0.1;
+		overflow: hidden;
+	}
+	&__nombre,
+	&__quitar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:hover{
+			opacity: 0.95;
+		}
+	}
+	&__nombre {
+		height: $widthMiniatura * 0.24;
+		font-size: $widthMiniatura * 0.08;
+		padding: 0 $widthMiniatura * 0.01;
+		background: $pantone2412C;
+		color: $white;
+		font-weight: bold;
+		text-align: center;
+	}
+	&__quitar {
+		height: $widthMiniatura * 0.198;
+		border-bottom-left-radius: $widthMiniatura * 0.1;
+		border-bottom-right-radius: $widthMiniatura * 0.1;
+		background: $pantoneRed032C;
+		color: $white;
+		font-weight: bold;
+		cursor: pointer;
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+		&:hover {
+			color: $pantone106C;
+		}
+	}
+
+	@media screen and (max-width: 1250px) {
+		$factorSize: 0.75;
+		width: $widthMiniatura * $factorSize;
+		margin: $widthMiniatura * $factorSize * 0.05;
+
+		&__imagen {
+			max-width: 100%;
+			max-height: $widthMiniatura * $factorSize * 0.5625;
+			border-top-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-top-right-radius: $widthMiniatura * $factorSize * 0.1;
+		}
+		&__nombre {
+			height: $widthMiniatura * $factorSize * 0.24;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+			padding: 0 $widthMiniatura * $factorSize * 0.01;
+		}
+
+		&__quitar {
+			height: $widthMiniatura * $factorSize * 0.198;
+			border-bottom-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-bottom-right-radius: $widthMiniatura * $factorSize * 0.1;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+		}
+	}
+	@media screen and (max-width: 550px) {
+		$factorSize: 0.58;
+		width: $widthMiniatura * $factorSize;
+		margin: $widthMiniatura * $factorSize * 0.05;
+
+		&__imagen {
+			max-width: 100%;
+			max-height: $widthMiniatura * $factorSize * 0.5625;
+			border-top-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-top-right-radius: $widthMiniatura * $factorSize * 0.1;
+		}
+		&__nombre {
+			height: $widthMiniatura * $factorSize * 0.24;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+			padding: 0 $widthMiniatura * $factorSize * 0.01;
+		}
+
+		&__quitar {
+			height: $widthMiniatura * $factorSize * 0.198;
+			border-bottom-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-bottom-right-radius: $widthMiniatura * $factorSize * 0.1;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+		}
+	}
+	@media screen and (max-width: 450px) {
+		$factorSize: 0.5;
+		width: $widthMiniatura * $factorSize;
+		margin: $widthMiniatura * $factorSize * 0.05;
+
+		&__imagen {
+			max-width: 100%;
+			max-height: $widthMiniatura * $factorSize * 0.5625;
+			border-top-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-top-right-radius: $widthMiniatura * $factorSize * 0.1;
+		}
+		&__nombre {
+			height: $widthMiniatura * $factorSize * 0.24;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+			padding: 0 $widthMiniatura * $factorSize * 0.01;
+		}
+
+		&__quitar {
+			height: $widthMiniatura * $factorSize * 0.198;
+			border-bottom-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-bottom-right-radius: $widthMiniatura * $factorSize * 0.1;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		$factorSize: 0.45;
+		width: $widthMiniatura * $factorSize;
+		margin: $widthMiniatura * $factorSize * 0.05;
+
+		&__imagen {
+			max-width: 100%;
+			max-height: $widthMiniatura * $factorSize * 0.5625;
+			border-top-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-top-right-radius: $widthMiniatura * $factorSize * 0.1;
+		}
+		&__nombre {
+			height: $widthMiniatura * $factorSize * 0.24;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+			padding: 0 $widthMiniatura * $factorSize * 0.01;
+		}
+
+		&__quitar {
+			height: $widthMiniatura * $factorSize * 0.198;
+			border-bottom-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-bottom-right-radius: $widthMiniatura * $factorSize * 0.1;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+		}
+	}
+	@media screen and (max-width: 330px) {
+		$factorSize: 0.4;
+		width: $widthMiniatura * $factorSize;
+		margin: $widthMiniatura * $factorSize * 0.05;
+
+		&__imagen {
+			max-width: 100%;
+			max-height: $widthMiniatura * $factorSize * 0.5625;
+			border-top-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-top-right-radius: $widthMiniatura * $factorSize * 0.1;
+		}
+		&__nombre {
+			height: $widthMiniatura * $factorSize * 0.24;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+			padding: 0 $widthMiniatura * $factorSize * 0.01;
+		}
+		&__quitar {
+			height: $widthMiniatura * $factorSize * 0.198;
+			border-bottom-left-radius: $widthMiniatura * $factorSize * 0.1;
+			border-bottom-right-radius: $widthMiniatura * $factorSize * 0.1;
+			font-size: $widthMiniatura * $factorSize * 0.08;
+		}
+	}
+}

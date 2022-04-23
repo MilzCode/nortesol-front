@@ -1,0 +1,62 @@
+.botonColores1 {
+	font-size: $fontSize12;
+	background-color: $pantone2039U;
+	font-family: $fontFamily;
+	outline: none !important;
+	border: none;
+	padding: 0.35em 1.5em;
+	color: white;
+	font-weight: bold;
+	border-radius: 0.6em;
+	max-width: 100%;
+	cursor: pointer;
+	position: relative;
+	//shadow
+	box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+	margin-top: 5px;
+	& > i {
+		margin-right: 3px;
+	}
+
+	& > p {
+		display: inline;
+	}
+	&:hover {
+		opacity: 0.96;
+	}
+	&:active {
+		transform: scale(0.99);
+	}
+	//disabled
+	&:disabled {
+		cursor: not-allowed;
+	}
+	&__tooltip {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transition: opacity;
+		transition-delay: 0.5s;
+		opacity: 0;
+		&:hover {
+			z-index: 9999;
+			opacity: 1;
+			&::before {
+				content: attr(data-tooltip);
+				position: absolute;
+				left: 0.5em;
+				top: 100%;
+				background: rgba($pantoneBlackC, 0.9);
+				color: white;
+				padding: 0.5em;
+				z-index: 1000;
+				font-size: 0.8em;
+				font-weight: lighter;
+				border: 1px solid white;
+				max-width: 100% !important;
+			}
+		}
+	}
+}

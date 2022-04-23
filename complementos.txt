@@ -1,0 +1,27 @@
+//sass
+npm install sass
+//slick
+yarn add react-slick
+/*
+	y ademas añadir al _app
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+*/
+
+yarn add react-select
+yarn add nouislider-react
+/*
+adicionalmente a nouislider-react añadi un estilo scss aparte NOUISLIDER.scss
+ya que con esto soluciono un error que me daba este componente
+*/
+
+npm i firebase
+npm i firebase-admin

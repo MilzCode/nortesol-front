@@ -1,0 +1,52 @@
+//hojas de estilo personalizadas
+@import './variables.scss';
+//layout
+@import './layout/Header.scss';
+@import './layout/Layout.scss';
+@import './layout/Footer.scss';
+//index
+@import './index/Destacados.scss';
+@import './index/Secciones.scss';
+@import './index/Siguenos.scss';
+@import './index/index.scss';
+@import './index/contacto.scss';
+
+//venta
+@import './venta/ProductoVistaMiniatura.scss';
+@import './venta/producto.scss';
+@import './venta/ProductoHead.scss';
+@import './venta/ProductoHeadComprar.scss';
+@import './venta/productoHeadImagen.scss';
+@import './venta/ProductoBody.scss';
+@import './venta/ProductoRelacionados.scss';
+@import './venta/carrito.scss';
+@import './venta/ProductoEnCarrito.scss';
+@import './venta/buy.scss';
+//login
+@import './login/login.scss';
+@import './login/register.scss';
+//user
+@import './user/user.scss';
+@import './user/edit.scss';
+@import './user/edit-address.scss';
+@import './user/ContenidoTablaPedidos.scss';
+//nortesoladm
+@import './nortesoladm/PortadaMiniatura.scss';
+//search
+@import './search/search.scss';
+@import './search/Filtro.scss';
+//general
+@import './general/Volver.scss';
+@import './general/BotonColores1.scss';
+@import './general/ventanaModal.scss';
+@import './general/404.scss';
+@import './general/Cargando.scss';
+@import './general/EditorTexto.scss';
+@import './general/EditarProductoBTN.scss';
+@import './general/imagenVistaPrevia.scss';
+//externos
+@import './externos/NOUISLIDER.scss';
+// @import "./externos/TEST.scss";
+@import './externos/REACTSELECT.scss';
+@import './externos/SUNEDITOR.scss';
+@import './externos/PAGINADOR.scss';

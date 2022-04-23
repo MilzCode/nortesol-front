@@ -1,0 +1,8 @@
+.producto {
+  &__titulo {
+    text-align: center;
+    color: $pantone2202C;
+    font-size: $font-sizeTitlesResponsive;
+    font-weight: bold;
+  }
+}

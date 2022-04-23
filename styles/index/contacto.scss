@@ -1,0 +1,14 @@
+.contacto {
+	&__box {
+		margin: auto;
+		background-color: $pantoneBlackC01;
+		border-radius: sizeBasedOnTitle(0.2);
+		padding: min(2%, 1.2rem);
+		max-width: 100%;
+		width: auto !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}

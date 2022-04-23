@@ -1,0 +1,50 @@
+.contenidoTablaPedidos {
+	&__thead {
+		font-size: $fontSize8;
+		font-weight: 700;
+		color: $white;
+		background-color: #00a8ff;
+		border-bottom: 1px solid #00a8ff;
+	}
+	&__head,
+	&__body,
+	&__descripcion,
+	&__titulo2 {
+		color: $pantoneBlackC;
+		background: white;
+		text-align: center;
+		& > td {
+			font-weight: 700;
+
+			padding: 5px 10px;
+		}
+	}
+	&__salto {
+		display: block;
+		height: 0.5rem;
+	}
+	&__head {
+		font-size: $fontSize10;
+		font-weight: 600;
+	}
+	&__body {
+		font-size: $fontSize11;
+	}
+	&__titulo2 {
+		font-size: $fontSize9;
+		font-weight: 600;
+	}
+	&__descripcion {
+		font-size: $fontSize11;
+		& li {
+			list-style: square;
+			text-align: justify;
+			color: $pantone300C;
+			& > span {
+				color: $pantoneBlackC;
+				font-weight: 600;
+				font-style: italic;
+			}
+		}
+	}
+}

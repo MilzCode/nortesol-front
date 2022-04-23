@@ -1,0 +1,17 @@
+.userEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  @extend .NOSELECT;
+  &__form {
+    @extend .FORMULARIO1;
+  }
+  &__titulo {
+    @extend .TITULOSFORM;
+  }
+  &__input {
+    @extend .DIVWITHINPUTANDLABEL;
+  }
+}

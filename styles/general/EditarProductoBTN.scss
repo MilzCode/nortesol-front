@@ -1,0 +1,25 @@
+.editarBTN {
+	font-size: $fontSize3;
+	position: absolute;
+	right: min(5em, 10vw);
+	& > span {
+		cursor: pointer;
+		height: auto;
+		& > i {
+			margin-left: sizeBasedOnTitle(0.18);
+			font-size: $fontSize4;
+			// transform: rotate(-90deg);
+			color: $pantone300C;
+		}
+		& > span {
+			font-size: 1em;
+			padding-left: 0.5rem;
+			font-weight: bold;
+			color: $pantoneWarmRedC;
+			font-style: italic;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

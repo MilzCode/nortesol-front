@@ -1,0 +1,12 @@
+.buyResp {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 65vh;
+	&__msg {
+		text-align: center;
+		font-weight: 600;
+		color: $pantoneBlackC;
+	}
+}

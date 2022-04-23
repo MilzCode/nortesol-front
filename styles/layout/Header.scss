@@ -1,0 +1,232 @@
+$sizeBase: sizeBasedOnTitle(1);
+.header {
+	font-size: $sizeBase;
+	background-color: $pantone2202C;
+	width: 100%;
+	height: $heightHeader;
+	top: 0;
+	position: fixed;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	z-index: 10000;
+	& > * {
+		margin: 0.2em;
+	}
+	&__logo {
+		width: 3.5em;
+		cursor: pointer;
+	}
+	&__contacto,
+	&__ingresar,
+	&__miCuenta,
+	&__subMenuDesplegar {
+		font-size: 0.8em;
+		position: relative;
+		cursor: pointer;
+		color: $white;
+		display: flex;
+		align-items: center;
+		& > span {
+			font-size: 1em;
+			font-family: $fontFamily;
+			font-weight: bold;
+			padding-left: 0.3em;
+			white-space: nowrap;
+		}
+	}
+	&__subMenuDesplegar {
+		display: none;
+	}
+
+	&__miCuentaDesplegable {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		top: 1em;
+		right: 0;
+		background-color: $pantone2202C;
+		width: auto;
+		height: auto;
+		padding: 0.5em;
+		border-radius: 0.3em;
+		box-shadow: 0 0.3em 0.5em 0 $shadow02;
+		border: $shadow02 solid 0.05em;
+		& > .header__desplegableOpcion {
+			white-space: nowrap;
+			color: $white;
+			font-size: 0.8em;
+			font-weight: bold;
+			padding: 0.3em;
+			border-bottom: 1px solid $white;
+			&:hover {
+				color: $pantone292C;
+			}
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+
+	&__buscador {
+		display: flex;
+		position: relative;
+		//flex gro min
+		flex: 1;
+		max-width: 60rem !important;
+		font-size: 0.5em;
+		height: 2em;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 0.5em;
+		max-width: 50%;
+
+		& > input {
+			width: 100%;
+			height: 100%;
+			border: none;
+			outline: none;
+			padding-right: 2%;
+			padding-left: 0.8em;
+			color: $pantone2202C;
+			font-size: 1em;
+			font-style: italic;
+			&:focus {
+				font-style: normal;
+			}
+			&::placeholder {
+				color: rgba($pantone2202C, 0.5);
+			}
+		}
+		& > button {
+			display: inline;
+			height: 100%;
+			border: none;
+			outline: none;
+			background-color: white;
+			color: $pantone2202C;
+			font-size: 1.5em;
+			border-left: 1px solid $pantone2202C;
+			cursor: pointer;
+			&:hover {
+				transform: scale(1.01);
+			}
+			&:active {
+				transform: scale(0.99);
+			}
+		}
+	}
+
+	&__carrito {
+		font-size: 0.9em;
+		padding: 0.1em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $pantone292C;
+		position: relative;
+		cursor: pointer;
+		& > i {
+			color: $white;
+		}
+	}
+	&__carrito-contador {
+		font-size: 0.4em;
+		position: absolute;
+		width: 2em;
+		height: 2em;
+		background: $pantoneWarmRedC;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-33%, -85%);
+		color: $white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > p {
+			display: inline;
+			line-height: 0;
+			padding: 0 0.1em;
+		}
+	}
+	@media screen and (max-width: $breakHeader1) {
+		&__subMenuDesplegar {
+			display: inline;
+		}
+		&__contacto {
+			& > span {
+				display: none;
+			}
+		}
+	}
+	@media screen and (max-width: $breakHeader2) {
+		&__ingresar {
+			& > span {
+				display: none;
+			}
+			&::after {
+				content: '+';
+			}
+		}
+		&__miCuenta {
+			& > span {
+				display: none;
+			}
+		}
+	}
+	// @media screen and (max-width: $breakHeader3) {
+	//   height: $heightHeader2;
+	//   &__logo {
+	//     margin: 0.2em 100%;
+	//   }
+	// }
+}
+
+.subHeader {
+	font-size: $sizeBase;
+	z-index: 5000;
+	position: fixed;
+	padding: 0 0.2em;
+	width: 100%;
+	top: 1.79em;
+	height: $heightSubHeader;
+	background: $pantone292C;
+	border-bottom-left-radius: 0.9em;
+	border-bottom-right-radius: 0.9em;
+	transition: transform 0.2s;
+	//transform transition
+
+	&__menu {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+	&__menuItem {
+		display: inline;
+		cursor: pointer;
+		width: auto;
+		height: auto;
+		color: $white;
+		font-weight: bold;
+		font-size: 0.6em;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	@media screen and (max-width: $breakHeader1) {
+		//para que apartir de este tamaño se oculte el subheader
+		&--desaparecer {
+			transform: translateY(-100%);
+		}
+	}
+	// @media screen and (max-width: $breakHeader3) {
+	//   top: $heightHeader2;
+	// }
+}

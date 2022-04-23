@@ -1,0 +1,67 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__titulo {
+    font-size: $font-sizeTitlesResponsive;
+    color: $pantone2202C;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__misDatos,
+  &__misDirecciones,
+  &__misPedidos {
+    @extend .FORMULARIO1;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+    padding: 2em;
+
+    &Titulo {
+      @extend .TITULOSFORM;
+    }
+  }
+  &__misDatosContenido,
+  &__misDireccionesContenido {
+    & p {
+      font-size: $fontSize9;
+      font-style: italic;
+      font-weight: 500;
+      color: $pantoneBlackC;
+    }
+  }
+  &__misDireccionesContenido {
+    & h4 {
+      font-size: $fontSize7;
+      font-style: italic;
+      font-weight: 500;
+      color: $pantone292C;
+    }
+  }
+  &__direccion,
+  &__misDatosContenido {
+    @extend .WHITEBACKGROUND;
+  }
+  &__botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & > button {
+      margin: 0.3em auto;
+    }
+  }
+  &__titulo2 {
+    font-size: $font-sizeTitlesResponsive;
+    color: $pantone1645C;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__misPedidos {
+    & > table {
+      border: none !important;
+    }
+  }
+}

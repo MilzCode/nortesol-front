@@ -1,0 +1,112 @@
+.filtro {
+	$font-size: 2rem;
+
+	padding: $font-size * 1.8 $font-size * 1.2 $font-size * 0.6 $font-size * 1.2;
+	border-radius: $font-size * 0.2;
+	//shadow
+	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	position: relative;
+
+	&__filtroA {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: $font-size * 0.5;
+		max-width: 100%;
+
+		& > label {
+			font-size: inherit;
+			margin-right: $font-size;
+			font-weight: 600;
+			padding-bottom: $font-size * 0.4;
+		}
+	}
+	&__filtroB {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: $font-size * 0.5;
+		margin-top: 2rem;
+
+		& > label {
+			font-size: inherit;
+			margin-right: $font-size;
+			font-weight: 600;
+			padding-right: $font-size * 0.5;
+			padding-bottom: $font-size * 0.4;
+		}
+		& > .filtro__slider {
+			margin-right: $font-size * 1.5;
+		}
+	}
+
+	&__filtrarBTN {
+		grid-column: span 2;
+		width: 30vw;
+		max-width: 300px;
+		margin: auto;
+	}
+
+	&--noFilter {
+		padding: 1rem;
+		padding-top: 1.7rem;
+		margin: 0;
+		width: $font-size * 2;
+		float: right !important;
+		.filtro__filtroA,
+		.filtro__filtroB,
+		.filtro__filtrarBTN {
+			display: none !important;
+		}
+		.filtro__togle {
+			& > span {
+				display: inline-block;
+			}
+			& > i {
+				color: $disabledColor;
+			}
+		}
+	}
+
+	&__togle {
+		position: absolute;
+		top: 3px;
+		right: 10px;
+		cursor: pointer;
+		& > span {
+			position: absolute;
+			display: none;
+			font-size: $font-size * 1.2;
+			right: $font-size * 2;
+			top: -30%;
+			font-weight: 700;
+			font-style: italic;
+			color: $pantone2039U;
+			&::after {
+				content: ' ';
+			}
+			&:hover{
+				color: $pantone2202C;
+			}
+		}
+
+		& > i {
+			color: $pantoneWarmRedC;
+			font-size: $font-size;
+		}
+	}
+
+	@media screen and (max-width: $breakHeader2) {
+		grid-template-columns: 1fr;
+		$font-size: 1.5rem;
+		font-size: min(#{$font-size}, 3.5vw);
+		padding: 1rem;
+		padding-top: 1.7rem;
+		margin: 0;
+		.filtro__filtrarBTN {
+			grid-column: span 1;
+		}
+	}
+}

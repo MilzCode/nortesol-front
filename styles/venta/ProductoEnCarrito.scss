@@ -1,0 +1,133 @@
+.productoEnCarrito {
+	background-color: $pantoneBlackC01;
+	width: sizeBasedOnTitle(15);
+	height: auto;
+	border-radius: sizeBasedOnTitle(0.2);
+	padding-bottom: min(2%, 1.2rem);
+	max-width: 100%;
+	margin: 0.5rem 0;
+	& img {
+		border-radius: sizeBasedOnTitle(0.3) !important;
+	}
+	&__titulo {
+		font-size: $fontSize6;
+		color: $pantone2202C;
+		text-align: center;
+		font-weight: 600;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.05);
+		}
+		&:active {
+			transform: scale(0.99);
+		}
+	}
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+	&__quitar {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 41px;
+		font-size: $fontSize12;
+
+		& > i {
+			cursor: pointer;
+			color: $pantoneWarmRedC;
+			position: relative;
+			z-index: 2;
+			padding: 0;
+			line-height: 0.7;
+			font-size: $fontSize9;
+			& > div {
+				position: absolute;
+				top: 6%;
+				left: 6%;
+				border-radius: 50%;
+				width: 80%;
+				height: 80%;
+				background-color: white;
+				z-index: -1;
+			}
+		}
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+	&__imagen {
+		width: 50%;
+		min-width: 140px !important;
+	}
+	&__datos {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__datosTitulo1,
+	&__datosTitulo2 {
+		font-size: $fontSize9;
+		color: $pantone292C;
+		font-weight: 500;
+		padding: 0;
+		margin: 0;
+	}
+	&__precio {
+		background-color: rgba(yellow, 0.5);
+		padding: 2px 7px;
+		font-size: $fontSize13;
+		font-weight: 600;
+		font-style: italic;
+		border-radius: sizeBasedOnTitle(0.2);
+		margin: sizeBasedOnTitle(0.1);
+	}
+	&__datosTitulo2 {
+		color: $pantone2039U;
+	}
+	&__cantidad {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		& > input {
+			max-width: sizeBasedOnTitle(1.5);
+			text-align: center;
+			margin: 0 1rem;
+			font-size: $fontSize14;
+			border-radius: 0.1rem;
+			padding: 0;
+			outline: none;
+		}
+		& > i {
+			cursor: pointer;
+			z-index: 2;
+			position: relative;
+			font-size: $fontSize8;
+			color: $pantone2412C;
+			&:last-child {
+				color: $pantone292C;
+			}
+			&:active {
+				transform: scale(0.9);
+			}
+			& div {
+				position: absolute;
+				width: 95%;
+				height: 80%;
+				background-color: white;
+				top: 8%;
+				border-radius: 10%;
+				z-index: -1;
+			}
+		}
+	}
+	&__total {
+		text-align: center;
+		font-size: $fontSize12;
+		font-weight: 500;
+		font-style: italic;
+	}
+}
